@@ -7,31 +7,31 @@ import catppuccin from "@catppuccin/starlight";
 export default defineConfig({
   integrations: [
     starlight({
-      title: "My Docs",
+      title: "Chunkwise",
+      favicon: "/favicon.svg",
+      logo: {
+        src: "./src/assets/logo.svg",
+      },
       social: [
         {
           icon: "github",
           label: "GitHub",
-          href: "https://github.com/withastro/starlight",
+          href: "https://github.com/chunkwise",
         },
       ],
       sidebar: [
         {
-          label: "Guides",
+          label: "Case Study",
           items: [
             // Each item here is one entry in the navigation menu.
-            { label: "Example Guide", slug: "guides/example" },
+            { label: "Example", slug: "case_study/example" },
           ],
-        },
-        {
-          label: "Reference",
-          autogenerate: { directory: "reference" },
         },
       ],
       plugins: [
         catppuccin({
-          dark: { flavor: "macchiato", accent: "sky" },
-          light: { flavor: "latte", accent: "sky" },
+          dark: { flavor: "macchiato", accent: "sapphire" },
+          light: { flavor: "latte", accent: "sapphire" },
         }),
       ],
     }),
