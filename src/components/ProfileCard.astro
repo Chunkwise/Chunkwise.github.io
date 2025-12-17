@@ -2,6 +2,7 @@
 import type { HTMLAttributes } from "astro/types";
 import { Icon } from "@astrojs/starlight/components";
 import type { StarlightIcon } from "@astrojs/starlight/types";
+import "../style.css";
 
 interface SocialLink {
   url: string;
@@ -26,29 +27,22 @@ const {
   ...rest
 } = Astro.props;
 
-const avatarSrc =
-  profilePictureUrl;
+const avatarSrc = profilePictureUrl;
 ---
 
-<article {...rest} >
+<article class="profile" {...rest}>
   <!-- Profile Picture or Initials -->
-  <div class='relative'>
+  <div class="relative">
     {
-      avatarSrc ? (
-        <img
-          src={avatarSrc}
-          alt={`${name}'s profile picture`}
-          loading='lazy'
-        />
-      ) : (
-        <div>
+      avatarSrc ?
+        <img src={avatarSrc} alt={`${name}'s profile picture`} loading="lazy" />
+      : <div>
           {name
             .split(" ")
             .map((word) => word.charAt(0).toUpperCase())
             .join("")
             .slice(0, 2)}
         </div>
-      )
     }
   </div>
 
@@ -62,30 +56,79 @@ const avatarSrc =
       {location}
     </p>
     <!-- Bio -->
-    {
-      bio && (
-        <p>
-          {bio}
-        </p>
-      )
-    }
+    {bio && <p>{bio}</p>}
   </div>
 
   <!-- Social Links -->
   {
     socialLinks.length > 0 && (
-      <div>
+      <div class="link-list">
         {socialLinks.map(({ url, icon, label }) => (
           <a
             href={url}
             aria-label={`${name}'s ${label}`}
-            target='_blank'
-            rel='noopener noreferrer'
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <Icon name={icon} />
+            <Icon name={icon} size="25px" />
           </a>
         ))}
       </div>
     )
   }
 </article>
+
+<!-- For article containing profiles -->
+<!-- <style is:global>
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+</style> -->
+
+<!-- For things in the ProfileCard -->
+<!-- <style>
+  .profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    width: 250px;
+    margin: 6px;
+    padding: 12px 20px;
+    border-radius: 12px;
+  }
+
+  .profile {
+    border: 1px solid #54576b;
+    background-color: #393c50;
+  }
+
+  [data-theme="light"] .profile {
+    border: 1px solid #54576b;
+    background-color: #fff;
+  }
+
+  .profile h3 {
+    font-size: 24px;
+  }
+
+  .profile img {
+    width: 100%;
+    border-radius: 50%;
+  }
+
+  .link-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .link-list a {
+    padding: 8px;
+    background-color: #54576b;
+    border-radius: 50%;
+  }
+</style> -->
