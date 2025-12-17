@@ -11,7 +11,7 @@ export default defineConfig({
       title: "Chunkwise",
       favicon: "/favicon.ico",
       logo: {
-        src: "./src/assets/logo.svg",
+        src: "/src/assets/logo.svg",
       },
       social: [
         {
@@ -29,6 +29,10 @@ export default defineConfig({
           autogenerate: { directory: "case_study" },
         },
       ],
+      tableOfContents: {
+        maxHeadingLevel: 4,
+      },
+      routeMiddleware: "./src/routeData.ts",
       plugins: [
         catppuccin({
           dark: { flavor: "macchiato", accent: "sapphire" },
