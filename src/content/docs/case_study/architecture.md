@@ -93,7 +93,7 @@ The ingestion pipeline performs four responsibilities:
 Below is the end-to-end lifecycle of a Chunkwise workflow, which begins with file upload and processing, proceeds through chunk visualization and retrieval-based evaluation, and culminates in ingesting a user-provided dataset into a vector store using a specified chunking strategy.
 
 **1\. Workflow Creation: Client ⇌ Backend ⇌ Database**
-<dotlottie-wc src="/src/assets/diagrams/request_flow/lottie/create_workflow.lottie" style="width: 500px;height: 500px" autoplay loop></dotlottie-wc>
+<dotlottie-wc src="/src/assets/diagrams/request_flow/lottie/create_workflow.lottie" style="width: 750px;height: 100px" autoplay loop></dotlottie-wc>
 
 <!-- **![][image17]**  -->
 

@@ -47,10 +47,74 @@ AI observability platforms (e.g., [TruLens](https://www.trulens.org/), [Braintru
 
 While these platforms excel at evaluating the overall performance of AI applications, they do not provide targeted evaluation of chunking strategies for retrieval. Hence, they are best suited for teams that have established an effective chunking strategy and seek to optimize other aspects of their AI applications.
 
-|                            |                        Chunkwise                         | Vectorize | Unstructured, Chonkie | DIY |
-| :------------------------- | :------------------------------------------------------: | :-------: | :-------------------: | :-: |
-| Open Source & Self-Managed |                            ✓                             |     ✕     |           ✕           |  ✓  |
-| Built-In Platform          |                            ✓                             |     ✓     |           ✓           |  ✕  |
-| Chunk Visualization        |                            ✓                             |     ✕     |           ✓           |  ✓  |
-| Retrieval-based Evaluation |                            ✓                             |     ✓     |           ✕           |  ✓  |
-| ETL Pipeline               | ⏤ (limited support for data source and document formats) |     ✓     |           ✓           |  ✓  |
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th style="vertical-align: middle;">
+        <img 
+          src="/src/assets/logos/logo.png" 
+          width="40px" 
+          alt="Chunkwise"
+          style="display: block; margin: 0 auto;" 
+        >
+      </th>
+      <th style="vertical-align: middle;">
+        <img 
+          src="/src/assets/logos/vectorize.png" 
+          width="70px" 
+          alt="Vectorize"
+          style="display: block; margin: 0 auto;"
+        >
+      </th>
+      <th style="vertical-align: middle;">
+        <img 
+          src="/src/assets/logos/chonkie_and_unstructured.png" 
+          width="150px" 
+          alt="Chonkie and Unstructured"
+          style="display: block; margin: 0 auto;"
+        >
+      </th>
+      <th style="vertical-align: middle; text-align: center;">
+        DIY
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Open Source & Self-Managed</strong></td>
+      <td align="center">✓</td>
+      <td align="center">✕</td>
+      <td align="center">✕</td>
+      <td align="center">✓</td>
+    </tr>
+    <tr>
+      <td><strong>Built-In Platform</strong></td>
+      <td align="center">✓</td>
+      <td align="center">✓</td>
+      <td align="center">✓</td>
+      <td align="center">✕</td>
+    </tr>
+    <tr>
+      <td><strong>Chunk Visualization</strong></td>
+      <td align="center">✓</td>
+      <td align="center">✕</td>
+      <td align="center">✓</td>
+      <td align="center">✓</td>
+    </tr>
+    <tr>
+      <td><strong>Retrieval-Based Evaluation</strong></td>
+      <td align="center">✓</td>
+      <td align="center">✓</td>
+      <td align="center">✕</td>
+      <td align="center">✓</td>
+    </tr>
+    <tr>
+      <td><strong>ETL Pipeline</strong></td>
+      <td align="center">⏤ <br>(limited support for data source and document formats)</td>
+      <td align="center">✓</td>
+      <td align="center">✓</td>
+      <td align="center">✓</td>
+    </tr>
+    </tbody>
+</table>

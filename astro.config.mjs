@@ -11,7 +11,7 @@ export default defineConfig({
       title: "Chunkwise",
       favicon: "/favicon.ico",
       logo: {
-        src: "/src/assets/logo.svg",
+        src: "/src/assets/logos/logo.svg",
       },
       social: [
         {
