@@ -26,6 +26,8 @@ export default defineConfig({
       ],
       components: {
         Header: "./src/components/CustomHeader.astro",
+        ThemeProvider: "./src/components/ThemeProvider.astro",
+        ThemeSelect: "./src/components/ToggleTheme.astro",
       },
       sidebar: [
         {
