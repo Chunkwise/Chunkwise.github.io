@@ -4,6 +4,10 @@
   --sl-color-accent-high: #e8dfe2;
 }
 
+main .hero h1 {
+  columns: white;
+}
+
 .row {
   display: flex;
   flex-direction: row;
@@ -20,16 +24,8 @@
   margin: 6px;
   padding: 12px 20px;
   border-radius: 12px;
-}
-
-.profile {
-  border: 1px solid var(--sl-color-gray-4);
-  background-color: var(--sl-color-gray-5);
-}
-
-[data-theme="light"] .profile {
-  border: 1px solid var(--sl-color-bg-nav);
-  background-color: var(--sl-color-bg);
+  border: 1px solid #d8d6ca;
+  background-color: #eceade;
 }
 
 .profile h3 {
@@ -66,27 +62,34 @@
   padding: 0 1rem;
 }
 
+.title-wrapper a {
+  font-family: monospace;
+  font-size: 38px;
+}
+
 .nav-wrapper {
   flex-grow: 1;
   display: flex;
   justify-content: left;
-  padding: 0 1rem;
+  margin-left: 48px;
 }
 
 .navbar {
   display: flex;
-  gap: 1rem;
-  align-items: center;
+  gap: 24px;
 }
 
-a {
+.navbar a {
+  font-size: 20px;
+}
+
+.navbar a:hover {
+  color: var(--sl-color-accent-low);
+}
+
+header a {
   text-decoration: none;
-  color: #03b9f4; /* Starlight's accent color */
-  font-weight: 500;
-}
-
-a:hover {
-  color: var(--sl-color-white);
+  color: var(--sl-color-accent); /* Starlight's accent color */
 }
 
 .right-group {
