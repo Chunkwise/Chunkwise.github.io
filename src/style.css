@@ -105,3 +105,9 @@ header a {
     display: none;
   }
 }
+
+/* Lottie animations - width 100%, aspect-ratio set inline per animation */
+dotlottie-wc {
+  display: block;
+  width: 100%;
+}
