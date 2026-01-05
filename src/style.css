@@ -2,6 +2,9 @@
   --sl-color-accent-low: #02137b;
   --sl-color-accent: #03b9f4;
   --sl-color-accent-high: #e8dfe2;
+
+  /* Top-left to bottom-right gradient */
+  --gradient-heading-primary: linear-gradient(to bottom right, #02137b, #03b9f4);
 }
 
 main .hero h1 {
@@ -89,7 +92,7 @@ main .hero h1 {
 
 header a {
   text-decoration: none;
-  color: var(--sl-color-accent); /* Starlight's accent color */
+  color: var(--sl-color-accent); Starlight's accent color
 }
 
 .right-group {
@@ -113,11 +116,17 @@ dotlottie-wc {
 }
 
 
-.sl-markdown-content a{
+.sl-markdown-content a {
   color: var(--sl-color-accent); /* light blue links */
   text-decoration: underline;
 }
 
 .sl-markdown-content a:hover {
   color: var(--sl-color-accent-low); /* dark blue on hover */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  background: var(--gradient-heading-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
