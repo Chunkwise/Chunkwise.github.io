@@ -15,11 +15,10 @@ import LottieAnimation from "@components/LottieAnimation.astro";
 Chunkwise consists of two major subsystems:
 
 1. **Experimentation Platform**: supports interactive chunk visualization and retrieval-based evaluation. It adopts a microservice architecture consisting of four components:
-
-   1. Chunking Service
-   2. Evaluation Service
-   3. Backend Server
-   4. Client
+    - Chunking Service
+    - Evaluation Service
+    - Backend Server
+    - Client
 
 2. **Data Ingestion Pipeline**: applies a selected chunking strategy to the user’s entire corpus and stores embeddings in a vector database for downstream RAG applications.
 
@@ -159,9 +158,9 @@ Chunk visualization requires three inputs:
 
 As the user adjusts any of these inputs, the backend:
 
-1. Updates the workflow record.
-2. Invokes the chunking service with the selected chunking strategy and document.
-3. Receives chunks with metadata and returns them to the client for interactive visualization and statistics computation.
+- Updates the workflow record.
+- Invokes the chunking service with the selected chunking strategy and document.
+- Receives chunks with metadata and returns them to the client for interactive visualization and statistics computation.
 
 This provides real-time feedback as the user iterates on different chunking strategies.
 
@@ -175,10 +174,10 @@ This provides real-time feedback as the user iterates on different chunking stra
 
 When the user triggers evaluation on the selected chunking strategy, the service:
 
-1. Loads the document from S3.
-2. Retrieves or generates the associated reference set (queries \+ excerpts).
-3. Computes the four retrieval-based metrics.
-4. Returns the evaluation results to the backend.
+- Loads the document from S3.
+- Retrieves or generates the associated reference set (queries \+ excerpts).
+- Computes the four retrieval-based metrics.
+- Returns the evaluation results to the backend.
 
 The backend extracts the metrics from the evaluation response and stores them in the workflow record. It then displays them in the UI.
 
@@ -220,7 +219,7 @@ The data layer consists of two core components:
 
 We deployed two separate RDS instances because they serve different scopes and operational purposes. The experimentation RDS stores experimentation workflow records, including visualization HTML, chunk statistics, evaluation metrics, and metadata. It is deployed in private subnets and accessible only to internal services, since it supports developer-driven experimentation and does not participate in production workflows.
 
-In contrast, the pipeline RDS is designed as a vector database, enabled with the pgvector extension, and stores chunks, embeddings, and document metadata for use in downstream retrieval workloads. This database is deployed in public subnets and intentionally kept publicly accessible to allow integration with external RAG systems, agentic workflows, and user-managed vector databases. The separation also ensures that experimentation workloads, which are often iterative and bursty, cannot affect production retrieval performance. It also allows each subsystem to scale, secure, and evolve independently according to its individual needs.
+In contrast, the pipeline RDS is designed as a vector database, enabled with the `pgvector` extension, and stores chunks, embeddings, and document metadata for use in downstream retrieval workloads. This database is deployed in public subnets and intentionally kept publicly accessible to allow integration with external RAG systems, agentic workflows, and user-managed vector databases. The separation also ensures that experimentation workloads, which are often iterative and bursty, cannot affect production retrieval performance. It also allows each subsystem to scale, secure, and evolve independently according to its individual needs.
 
 Within the overall Chunkwise architecture, only the backend service communicates with the two RDS instances, while all other services remain stateless. This architecture separates compute, storage, and networking concerns, keeps all internal traffic inside the VPC, and provides autoscaling, resilience, and isolation for each microservice with minimal operational overhead.
 
