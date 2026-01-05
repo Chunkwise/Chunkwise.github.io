@@ -6,62 +6,89 @@ sidebar:
 
 ## Deployment
 
-Chunkwise is deployed using a CLI tool. To get started, clone the repository and set up the environment:
+Chunkwise includes a CLI tool that automates infrastructure setup and deployment.
+
+Set up the environment:
 
 ```bash
 git clone https://github.com/Chunkwise/chunkwise.git
 cd chunkwise/cli
 poetry install
 eval $(poetry env activate)
+```
+
+Deploy the infrastructure:
+
+```bash
 typer cli.py run deploy
 ```
 
-Once deployed, you can build and run the client using the following command:
+<iframe
+  src="https://player.mux.com/yFXGcTVsqnc8014yC9vVJOqKA8PE7hof4ZoR4zBIsiYA?autoplay=true&loop=true&muted=true&accent-color=%2303B9F4"
+  style="width: 100%; border: none; aspect-ratio: 16/9; pointer-events: none;"
+  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+></iframe>
+
+Run the client:
 
 ```bash
 typer cli.py run client-run [--region=REGION]
 ```
 
-![Deployment Process](../../../assets/walkthrough/deployment.gif)
-
 ---
 
-## Platform
+## Client
 
-The Chunkwise platform provides four main features to help you optimize your chunking workflows:
+The Chunkwise client provides an environment for comparing and evaluating chunking strategies before deploying them to production.
 
-### Visualisation
+### Experimentation Platform
 
-_[Placeholder: Describe what users can visualise in the platform, such as viewing how documents are chunked, inspecting chunk boundaries, etc.]_
+The experimentation platform allows users to test and evaluate different chunking strategies before deployment.
 
-<video controls width="100%">
-  <source src="../../../assets/walkthrough/visualisation.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
+#### Visualization
 
-### Evaluation
+Users can create a workflow, upload a document and select a chunker. Users can also adjust the chunking configurations. The interface displays how the document is split into chunks, showing chunk boundaries and distribution statistics.
 
-_[Placeholder: Describe how users can evaluate their chunking strategies, view metrics like precision/recall, compare against ground truth, etc.]_
+<iframe
+  src="https://player.mux.com/cqKuakQqzFrAw54behyWPJq4FNzlOgntp01Aa62v2Vec?accent-color=%2303B9F4"
+  style="width: 100%; border: none; aspect-ratio: 16/9;"
+  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+  allowfullscreen
+></iframe>
 
-<video controls width="100%">
-  <source src="../../../assets/walkthrough/evaluation.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
+#### Evaluation
 
-### Comparison
+Users can evaluate the workflow's retrieval performance. The platform uses a ground truth dataset and benchmarks the chunking strategy.
 
-_[Placeholder: Describe how users can compare multiple chunking workflows side-by-side, analyze differences in output, benchmark performance, etc.]_
+<iframe
+  src="https://player.mux.com/eHxsrmOMBPSYwH8wT01uBp01wqXDjNDRJ9rIYzKgzYzu00?accent-color=%2303B9F4"
+  style="width: 100%; border: none; aspect-ratio: 16/9;"
+  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+  allowfullscreen
+></iframe>
 
-<video controls width="100%">
-  <source src="../../../assets/walkthrough/comparison.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
+#### Comparison
 
-### Deploy
+Users can create multiple workflows with different chunking strategies. The comparison view displays differences in chunk metrics and retrieval performance across all selected workflows.
 
-_[Placeholder: Describe how users can deploy their optimized chunking workflow to production, configure deployment settings, etc.]_
+<iframe
+  src="https://player.mux.com/P1NjoXExtQcmpt3yBbM9MEFs02wq8lIOZsoFT3C7KPpI?accent-color=%2303B9F4"
+  style="width: 100%; border: none; aspect-ratio: 16/9;"
+  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+  allowfullscreen
+></iframe>
 
-<video controls width="100%">
-  <source src="../../../assets/walkthrough/deploy.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
+### ETL Pipeline Deployment
+
+After evaluating workflows, users can deploy them as ETL pipelines.
+
+#### Deploy Workflow
+
+Users select a workflow to deploy and provide their S3 bucket credentials. The platform provisions the ETL pipeline to ingest and process documents from the specified bucket. Once the database table is created in RDS, the platform returns an ARN that users can use to retrieve the RDS credentials required to access the chunks and embeddings.
+
+<iframe
+  src="https://player.mux.com/LOTIFx00CeoGLhwyT02Fyw6Z9dq201rZq9uYN8XG01A4802A?accent-color=%2303B9F4"
+  style="width: 100%; border: none; aspect-ratio: 16/9;"
+  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+  allowfullscreen
+></iframe>
