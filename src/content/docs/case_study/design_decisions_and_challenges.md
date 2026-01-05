@@ -4,7 +4,7 @@ sidebar:
   order: 6
 ---
 
-#### Choosing Chunkers Across Providers
+### Choosing Chunkers Across Providers
 
 We selected eight chunkers—five from [Chonkie](https://docs.chonkie.ai/common/open-source#advanced-chunkers) and three from [LangChain](https://docs.langchain.com/oss/python/integrations/splitters/index#text-splitters)—to represent a broad range of commonly used text-based chunking strategies. Chonkie offers the most comprehensive open-source chunking library. Out of their nine available chunkers, we selected `TokenChunker`, `SentenceChunker`, `RecursiveChunker`, `SemanticChunker`, and `SlumberChunker` (an LLM-based, agentic chunker). To enable cross-provider comparison of the most common chunkers, we also included LangChain’s widely adopted baseline chunkers: `TokenTextSplitter`, `CharacterTextSplitter`, and `RecursiveCharacterTextSplitter`.
 
@@ -31,7 +31,7 @@ The following table shows the results of a load test conducted on a corpus of 1,
 \*\* A larger load test of 1,457 documents (308 MB total) using LangChain Recursive took between 24:22 (shortest job) and 1:34:04 (longest job)  
 \*\*\* LangChain Character splits on “\\n\\n” by default, which can lead to large chunks in some documents. This leads to truncation to fit in the embedding model limits, which reduces runtime.
 
-#### AWS ECS Fargate vs. AWS Lambda
+### AWS ECS Fargate vs. AWS Lambda
 
 We initially considered implementing each microservice as an AWS Lambda function to reduce costs. Our first attempt used Lambda layers for dependencies, but the Python libraries required by the chunking and evaluation services exceeded Lambda’s 250 MB unzipped limit, making this approach infeasible. We then attempted to deploy the services as containerized Lambdas, which successfully deployed but failed at runtime: importing certain compute-heavy libraries triggered multiprocessing-related initialization errors, preventing the FastAPI server from starting. These issues arise because the LangChain, Chonkie, and ChromaDB libraries internally rely on multiprocessing primitives that are not fully supported in the Lambda execution environment.
 
@@ -41,19 +41,19 @@ The primary trade-off is that ECS introduces greater infrastructure complexity a
 
 For our dependency-heavy, HTTP-based microservices, this additional infrastructure overhead is justified. ECS Fargate provides predictable performance without Lambda’s cold-start latency and gives us full operational control, which outweighs the simplicity of Lambda’s serverless model.
 
-#### Horizontal Scaling of the ETL Pipeline
+### Horizontal Scaling of the ETL Pipeline
 
 We chose to use AWS Batch because it automatically handles scaling our ETL pipeline processing jobs up and down. We made this decision after local testing revealed that a 10 MB document took 140 seconds to process. Given that a knowledge base can consist of thousands of documents, this could lead to wait times measured in days, which we deemed unacceptable.
 
 However, we initially overscaled our jobs – because our team was in OpenAI’s Usage Tier 1, text-embedding-small-3’s 1,000,000 tokens-per-minute rate limit was often the bottleneck. We reduced the maximum number of jobs from 32 to 4, but still frequently hit rate limits. We decided against further reducing the number of jobs because organizations in a higher tier would not face the same bottleneck.
 
-#### File Uploading and Normalization
+### File Uploading and Normalization
 
 We chose to handle document uploads for evaluation through the backend rather than instructing users to upload files directly to S3. This ensures that all documents are normalized before reaching any chunking or evaluation logic. During testing, we found that token-based chunkers can fail on text containing multi-byte Unicode characters, such as curly quotes, en/em dashes, and ellipses. Because token chunkers slice text by token count instead of Unicode character boundaries, a token window may end in the middle of a multi-byte character. When this occurs, decoding the token sequence fails and replaces it with the replacement character “�”. This not only creates discrepancies between the generated chunks and the original document but, more critically, causes the evaluation framework—whose excerpt-matching relies on exact substring equality—to fail.
 
 Direct file uploads to S3 bypass both the normalization step and the frontend’s 50 KB file-size cap. Larger files significantly increase latency for LLM query generation, which is the slowest part of evaluation. In our tests, evaluating a 50 KB file with query generation returned in around 30-40 seconds, whereas a 120 KB file often took close to a minute. Handling file uploads through the backend enforces the size limit, ensures that every document is safely normalized, and keeps evaluation latency within a reasonable range.
 
-#### Stable Data Corpus Identification for Targeted Evaluation
+### Stable Data Corpus Identification for Targeted Evaluation
 
 Chroma’s evaluation framework was designed for synthetic evaluation across multiple local corpora (i.e., datasets), using each corpus’s file path as the `corpus_id` in the queries CSV file. This works in a local environment because file paths serve as stable identifiers.
 
