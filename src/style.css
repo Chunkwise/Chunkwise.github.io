@@ -104,7 +104,7 @@ header a {
   display: flex;
   gap: 1rem;
   align-items: center;
-  width: 300px;
+  width: 250px;
 }
 
 /* Hides Search, Social, and ThemeSelect on mobile */
@@ -163,7 +163,7 @@ h2, h3, h4, h5, h6 {
 }
 
 .sl-link-button.primary:hover {
-  background: linear-gradient(to left, --sl-color-accent-low, --sl-color-accent);
+  background: linear-gradient(to left, var(--sl-color-accent-low), var(--sl-color-accent));
 }
 
 .sl-link-button.secondary {
@@ -173,7 +173,7 @@ h2, h3, h4, h5, h6 {
 }
 
 .sl-link-button.secondary:hover {
-  background: linear-gradient(to left, --sl-color-accent, --sl-color-accent-high);
+  background: linear-gradient(to left, var(--sl-color-accent), var(--sl-color-accent-high));
 }
 
 .profile:hover {
