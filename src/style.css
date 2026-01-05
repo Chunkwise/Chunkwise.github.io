@@ -111,3 +111,13 @@ dotlottie-wc {
   display: block;
   width: 100%;
 }
+
+
+.sl-markdown-content a{
+  color: var(--sl-color-accent); /* light blue links */
+  text-decoration: underline;
+}
+
+.sl-markdown-content a:hover {
+  color: var(--sl-color-accent-low); /* dark blue on hover */
+}
