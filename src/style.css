@@ -67,14 +67,15 @@ main .hero h1 {
 
 .title-wrapper a {
   font-family: monospace;
-  font-size: 38px;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .nav-wrapper {
   flex-grow: 1;
   display: flex;
   justify-content: left;
-  margin-left: 48px;
+  margin-left: 44px;
 }
 
 .navbar {
@@ -83,7 +84,7 @@ main .hero h1 {
 }
 
 .navbar a {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .navbar a:hover {
@@ -92,14 +93,14 @@ main .hero h1 {
 
 header a {
   text-decoration: none;
-  color: var(--sl-color-accent); /*Starlight's accent color*/
+  /* color: var(--sl-color-accent); /* Starlight's accent color */
 }
 
 .right-group {
   display: flex;
   gap: 1rem;
   align-items: center;
-  width: 350px;
+  width: 300px;
 }
 
 /* Hides Search, Social, and ThemeSelect on mobile */
@@ -139,4 +140,8 @@ h1, h2, h3, h4, h5, h6 {
 
 h2, h3, h4, h5, h6 {
   font-weight: 600;
+}
+
+.title-wrapper .site-title {
+  gap: 0.5rem; /* Adjust this value - default is likely 0.5rem or 1rem */
 }
