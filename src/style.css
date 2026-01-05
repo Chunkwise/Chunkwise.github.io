@@ -32,7 +32,7 @@ main .hero h1 {
 }
 
 .profile h3 {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .profile img {
@@ -92,7 +92,7 @@ main .hero h1 {
 
 header a {
   text-decoration: none;
-  color: var(--sl-color-accent); Starlight's accent color
+  color: var(--sl-color-accent); /*Starlight's accent color*/
 }
 
 .right-group {
@@ -127,6 +127,16 @@ dotlottie-wc {
 
 h1, h2, h3, h4, h5, h6 {
   background: var(--gradient-heading-primary);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.sl-container > h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+h2, h3, h4, h5, h6 {
+  font-weight: 600;
 }
