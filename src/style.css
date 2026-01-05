@@ -84,7 +84,6 @@ main .hero h1 {
 .navbar {
   display: flex;
   gap: 24px;
-  opacity: 0.8;
 }
 
 .navbar a {
