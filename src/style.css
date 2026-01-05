@@ -3,8 +3,11 @@
   --sl-color-accent: #03b9f4;
   --sl-color-accent-high: #e8dfe2;
 
-  /* Top-left to bottom-right gradient */
-  --gradient-heading-primary: linear-gradient(to bottom right, #02137b, #03b9f4);
+  /* Top-left to bottom-right primary gradient color */
+  --gradient-primary: linear-gradient(to bottom right, #02137b, #03b9f4);
+
+  /* Top-left to bottom-right secondary gradient color */
+  --gradient-secondary: linear-gradient(to bottom right, #03b9f4, #e8dfe2);
 }
 
 main .hero h1 {
@@ -93,7 +96,6 @@ main .hero h1 {
 
 header a {
   text-decoration: none;
-  /* color: var(--sl-color-accent); /* Starlight's accent color */
 }
 
 .right-group {
@@ -127,7 +129,7 @@ dotlottie-wc {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  background: var(--gradient-heading-primary);
+  background: var(--gradient-primary);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -143,5 +145,24 @@ h2, h3, h4, h5, h6 {
 }
 
 .title-wrapper .site-title {
-  gap: 0.5rem; /* Adjust this value - default is likely 0.5rem or 1rem */
+  gap: 0.5rem; 
 }
+
+.sl-link-button {
+  border-radius: 8px; 
+  padding: 0.8rem 1.5rem; 
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.sl-link-button.primary {
+  background: var(--gradient-primary);
+  color: white;
+}
+
+.sl-link-button.secondary {
+  background: var(--gradient-secondary);
+  color: black;
+  border: none;
+}
+
