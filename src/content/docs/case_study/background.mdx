@@ -149,13 +149,8 @@ A key challenge is that commonly used Information Retrieval (IR) benchmarks, suc
 To address this gap, Chroma proposes a fine-grained, token-level [evaluation framework](https://github.com/brandonstarxel/chunking_evaluation) for benchmarking retrieval accuracy and efficiency. They adapt classical IR metrics to operate at the token level:
 
 <ZoomedDiagram
-  src="evals/token_retrieval.png"
-  alt="True/False Positives/Negatives for Token Retrieval"
-/>
-
-<ZoomedDiagram
-  src="evals/precision_and_recall.png"
-  alt="Precision: True Positives / Total Retrieved, Recall: True Positives / Total Relevant"
+  src="evals/token_retrieval_and_precision_recall.png"
+  alt="True/False Positives/Negatives for Token Retrieval, and  True Positives / Total Retrieved, Recall: True Positives / Total Relevant"
 />
 
 - **Precision**: Among all retrieved tokens, how many are relevant?
@@ -164,7 +159,7 @@ To address this gap, Chroma proposes a fine-grained, token-level [evaluation fra
 In addition, they introduce a third, retrieval-specific metric:
 
 <ZoomedDiagram
-  src="evals/IoU.png"
+  src="evals/iou.png"
   alt="Interection over Union: Area of Overlap / Area of Union"
 />
 
