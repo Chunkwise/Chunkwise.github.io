@@ -31,8 +31,32 @@ export default defineConfig({
       },
       sidebar: [
         {
-          label: "Case Study",
-          autogenerate: { directory: "case_study" },
+          label: "Overview",
+          link: "/case_study/overview/",
+        },
+        {
+          label: "Background",
+          link: "/case_study/background/",
+        },
+        {
+          label: "Introducing Chunkwise",
+          link: "/case_study/introducing_chunkwise/",
+        },
+        {
+          label: "Architecture",
+          link: "/case_study/architecture/",
+        },
+        {
+          label: "Design Decisions and Challenges",
+          link: "/case_study/design_decisions_and_challenges/",
+        },
+        {
+          label: "Walkthrough",
+          link: "/case_study/walkthrough/",
+        },
+        {
+          label: "Future Work",
+          link: "/case_study/future_work/",
         },
       ],
       tableOfContents: {
