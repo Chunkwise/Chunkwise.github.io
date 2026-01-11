@@ -47,7 +47,7 @@ For our dependency-heavy, HTTP-based microservices, this additional infrastructu
 
 We chose to use AWS Batch because it automatically handles scaling our ETL pipeline processing jobs up and down. We made this decision after local testing revealed that a 10 MB document took 140 seconds to process. Given that a knowledge base can consist of thousands of documents, this could lead to wait times measured in days, which we deemed unacceptable.
 
-However, we initially overscaled our jobs – because our team was in OpenAI’s Usage Tier 1, text-embedding-small-3’s 1,000,000 tokens-per-minute rate limit was often the bottleneck. We reduced the maximum number of jobs from 32 to 4, but still frequently hit rate limits. We decided against further reducing the number of jobs because organizations in a higher tier would not face the same bottleneck.
+However, we initially overscaled our jobs – because our team was in OpenAI’s Usage Tier 1, `text-embedding-3-small`’s 1,000,000 tokens-per-minute rate limit was often the bottleneck. We reduced the maximum number of jobs from 32 to 4, but still frequently hit rate limits. We decided against further reducing the number of jobs because organizations in a higher tier would not face the same bottleneck.
 
 ### File Uploading and Normalization
 
