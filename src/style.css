@@ -178,11 +178,23 @@ header a {
 .hero {
   height: calc(100vh - var(--sl-nav-height)) !important;
   max-height: calc(100vh - var(--sl-nav-height)) !important;
-  padding: 0 !important;
+  padding: 0 var(--page-padding) !important;
   display: flex !important;
+  flex-direction: row-reverse !important;
   align-items: center !important;
-  justify-content: center !important;
+  justify-content: space-between !important;
+  gap: 10rem !important;
   overflow: hidden !important;
+}
+
+.hero > div {
+  flex: 1 1 0 !important;
+  text-align: left !important;
+}
+
+.hero > p {
+  flex: 0 0 auto !important;
+  max-width: 500px !important;
 }
 
 .hero .tagline {
@@ -212,6 +224,8 @@ header a {
   padding: var(--spacing-xl) 0 !important;
   text-align: left !important;
   max-width: 80% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .intro-section h2 {
@@ -235,6 +249,9 @@ header a {
 .cta-section {
   margin-top: var(--spacing-4xl) !important;
   text-align: left !important;
+  max-width: 80% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .cta-section h2 {
@@ -274,6 +291,8 @@ header a {
 .sl-steps {
   margin-top: var(--spacing-4xl) !important;
   max-width: 80% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .steps > ol > li,
